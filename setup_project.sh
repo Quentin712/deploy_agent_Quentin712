@@ -7,3 +7,13 @@ touch attendance_tracker_${INPUT}/Helpers/assets.csv
 touch attendance_tracker_${INPUT}/Helpers/config.json
 touch attendance_tracker_${INPUT}/reports/reports.log
 echo "Done! Folder created: attendance_tracker_${INPUT}"
+
+read -p "Do you want to update attendance thresholds? (yes/no): " UPDATE
+
+if [ "$UPDATE" = "yes" ]; then
+    read -p "Enter new Warning threshold (default 75): " WARNING
+    read -p "Enter new Failure threshold (default 50): " FAILURE
+    sed -i "s/\"warning\": [0-9]*/\"warning\": ${WARNING}/" attendance_tracker_${INPUT}/Helpers/config.json
+    sed -i "s/\"failure\": [0-9]*/\"failure\": ${FAILURE}/" attendance_tracker_${INPUT}/Helpers/config.json
+    echo "Thresholds updated!"
+fi

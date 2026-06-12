@@ -1,4 +1,15 @@
 #!/bin/bash
+
+trap_handler() {
+    echo "Interrupt detected! Cleaning up..."
+    tar -czf "attendance_tracker_${INPUT}_archive.tar.gz" "attendance_tracker_${INPUT}"
+    rm -rf "attendance_tracker_${INPUT}"
+    echo "Archive created and incomplete folder deleted."
+    exit 1
+}
+
+trap trap_handler SIGINT
+
 read -p "Enter a project name: " INPUT
 mkdir -p attendance_tracker_${INPUT}/Helpers
 mkdir -p attendance_tracker_${INPUT}/reports

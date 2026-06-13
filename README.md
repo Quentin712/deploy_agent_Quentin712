@@ -11,21 +11,6 @@ This is a shell script I built that sets up a student attendance tracker project
 - It confirms the folder structure was built correctly
 - If you press Ctrl+C while it is running, it saves everything into a zip archive and cleans up the incomplete folder
 
-## Folder structure it creates
-attendance_tracker_v1/
-
-├── attendance_checker.py
-
-├── Helpers/
-
-│   ├── assets.csv
-
-│   └── config.json
-
-└── reports/
-
-└── reports.log
-
 ## What you need before running
 - A bash terminal
 - python3 installed on your machine
@@ -68,13 +53,8 @@ Just press Ctrl+C while the script is running. It will:
 - Pack the incomplete folder into a file called `attendance_tracker_{name}_archive.tar.gz`
 - Delete the incomplete folder so your workspace stays clean
 
-## Running the attendance checker
-
-Once setup is done go into the folder and run:
+## Check everything was created
+Once the script finishes run this to confirm the folder structure is correct:
 ```bash
-cd attendance_tracker_v1
-python3 attendance_checker.py
+tree attendance_tracker_v1
 ```
-
-Results will be saved in `reports/reports.log`
-

@@ -38,3 +38,8 @@ else
     echo "python3 was not found on this system. The application may not run correctly."
 fi
 
+if [[ -f "attendance_tracker_${INPUT}/attendance_checker.py" ]] && [[ -d "attendance_tracker_${INPUT}/Helpers" ]] && [[ -d "attendance_tracker_${INPUT}/reports" ]]; then
+    echo "Project structure has been verified successfully."
+else
+    echo "Setup encountered an issue. The directory structure could not be verified."
+fi

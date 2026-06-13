@@ -31,3 +31,10 @@ if [ "$UPDATE" = "yes" ]; then
     sed -i "s/\"failure\": [0-9]*/\"failure\": ${FAILURE}/" attendance_tracker_${INPUT}/Helpers/config.json
     echo "Thresholds updated!"
 fi
+
+if command -v python3 > /dev/null 2>&1; then
+    echo "python3 is available on this system: $(python3 --version)"
+else
+    echo "python3 was not found on this system. The application may not run correctly."
+fi
+

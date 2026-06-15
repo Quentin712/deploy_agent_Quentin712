@@ -12,6 +12,16 @@ trap trap_handler SIGINT
 
 read -p "Enter a project name: " INPUT
 
+if [ -z "$INPUT" ]; then
+    echo "Error: Project name cannot be empty."
+    exit 1
+fi
+
+if [ -d "attendance_tracker_${INPUT}" ]; then
+    echo "Error: attendance_tracker_${INPUT} already exists. Choose a different name."
+    exit 1
+fi
+
 mkdir -p attendance_tracker_${INPUT}/Helpers
 mkdir -p attendance_tracker_${INPUT}/reports
 

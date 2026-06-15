@@ -58,3 +58,16 @@ Once the script finishes run this to confirm the folder structure is correct:
 ```bash
 tree attendance_tracker_v1
 ```
+## How it works
+
+### 1. Directory Architecture
+Creates a folder called `attendance_tracker_{name}` with the required structure including `Helpers/` and `reports/` subdirectories and copies all source files into the correct locations.
+
+### 2. Dynamic Configuration
+Asks the user if they want to update the warning and failure thresholds. If yes it uses `sed` to edit `config.json` directly with the new values.
+
+### 3. Process Management
+Has a SIGINT trap built in. When you press Ctrl+C while the script is running it bundles the incomplete project folder into a `.tar.gz` archive and deletes the original folder to keep things clean.
+
+### 4. Environment Validation
+Checks if python3 is installed on your machine using `python3 --version` and prints the version if found or a warning if it is missing. Also verifies the directory structure was created correctly.

@@ -71,3 +71,5 @@ Has a SIGINT trap built in. When you press Ctrl+C while the script is running it
 
 ### 4. Environment Validation
 Checks if python3 is installed on your machine using `python3 --version` and prints the version if found or a warning if it is missing. Also verifies the directory structure was created correctly.
+
+ A link to a run-through video: https://drive.google.com/file/d/1F_NoOyqLYtRWvSPQYgh6uKch47Rpt7cU/view?usp=sharing
